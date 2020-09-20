@@ -1,7 +1,7 @@
 {
 	"plugins": [
 		"prettier",
-		"@typescript-eslint"
+		"@typescript-eslint/tslint"
 	],
 	"extends": [
 		"airbnb-typescript",
@@ -15,6 +15,12 @@
 	},
 	"settings": {},
 	"rules": {
+		"no-use-before-define": [
+			"error",
+			{
+				"variables": false
+			}
+		],
 		"indent": [
 			2,
 			"tab",
