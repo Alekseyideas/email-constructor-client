@@ -12,6 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import { AccordionDefault, SelectDefault } from './ui';
 
 const useStyles = makeStyles((theme) => ({
 	drawerPaper: {
@@ -77,21 +78,24 @@ export const Sidebar: React.FC = ({ }) => {
 			</div>
 			<Divider light />
 			<ListItem>
-				<FormControl className={classes.formControl}>
-					<InputLabel id="demo-simple-select-label">Направление</InputLabel>
-					<Select
-						labelId="demo-simple-select-label"
-						id="demo-simple-select"
-						value={age}
-						onChange={handleChange}
-					>
-						<MenuItem value={10}>Ten</MenuItem>
-						<MenuItem value={20}>Twenty</MenuItem>
-						<MenuItem value={30}>Thirty</MenuItem>
-					</Select>
-				</FormControl>
+				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Направление" />
 			</ListItem>
 
+			<ListItem>
+				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Каналы" />
+			</ListItem>
+
+			<ListItem>
+				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Тип письма" />
+			</ListItem>
+
+			<ListItem>
+				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Издание" />
+			</ListItem>
+			<ListItem>
+				<AccordionDefault />
+
+			</ListItem>
 		</Drawer>
 	);
 }

@@ -3,6 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import { TextField } from 'formik-material-ui';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
@@ -14,6 +15,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Copyright } from '../components/Copyright';
+import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -41,6 +43,7 @@ interface Values {
 }
 
 export const Login: React.FC = () => {
+	const history = useHistory();
 	const classes = useStyles();
 
 	return (
@@ -75,8 +78,9 @@ export const Login: React.FC = () => {
 					onSubmit={(values, { setSubmitting }) => {
 						setTimeout(() => {
 							setSubmitting(false);
-							alert(JSON.stringify(values, null, 2));
-						}, 500);
+							history.push('/home');
+							// alert(JSON.stringify(values, null, 2));
+						}, 1500);
 					}}
 				>
 					{({ submitForm, isSubmitting }) => (
@@ -116,9 +120,11 @@ export const Login: React.FC = () => {
 								className={classes.submit}
 								disabled={isSubmitting}
 								onClick={submitForm}
+								style={{ height: '36px' }}
+
 							>
-								Увiйти
-				</Button>
+								{isSubmitting ? <CircularProgress size={15} /> : 'Увiйти'}
+							</Button>
 							<Grid container>
 								<Grid item xs>
 									<Link href="#" variant="body2">
