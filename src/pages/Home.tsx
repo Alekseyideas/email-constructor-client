@@ -1,17 +1,13 @@
 import React from 'react';
-import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import { Copyright } from '../components/Copyright';
 import { Header } from '../components/Header';
-import { drawerWidth } from '../config';
 import { Sidebar } from '../components/Sidebar';
 import { MainCalendar } from '../components/MainCalendar';
-
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -20,12 +16,13 @@ const useStyles = makeStyles((theme) => ({
 	appBarSpacer: theme.mixins.toolbar,
 	content: {
 		flexGrow: 1,
-		height: '100vh',
-		overflow: 'auto',
+		// height: '100vh',
+		// overflow: 'auto',
 	},
 	container: {
 		paddingTop: theme.spacing(4),
 		paddingBottom: theme.spacing(4),
+		maxWidth: '100%',
 	},
 	paper: {
 		padding: theme.spacing(2),
@@ -36,14 +33,12 @@ const useStyles = makeStyles((theme) => ({
 	fixedHeight: {
 		height: 240,
 	},
-
 }));
-
 
 export const Home: React.FC = () => {
 	const classes = useStyles();
 
-	const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+	// const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
 	return (
 		<div className={classes.root}>
@@ -53,7 +48,7 @@ export const Home: React.FC = () => {
 			<main className={classes.content}>
 				<div className={classes.appBarSpacer} />
 				<Container maxWidth="lg" className={classes.container}>
-					<Grid container spacing={3}>
+					<Grid container spacing={3} style={{ maxWidth: '100%' }}>
 						<MainCalendar />
 					</Grid>
 					<Box pt={4}>
@@ -63,4 +58,4 @@ export const Home: React.FC = () => {
 			</main>
 		</div>
 	);
-}
+};

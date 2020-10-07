@@ -1,61 +1,23 @@
-import React from 'react'
+import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import clsx from 'clsx';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 import ListItem from '@material-ui/core/ListItem';
+import Box from '@material-ui/core/Box';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { makeStyles } from '@material-ui/core/styles';
-import { drawerWidth } from '../config';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
+import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
+import SearchIcon from '@material-ui/icons/Search';
+import CheckIcon from '@material-ui/icons/Check';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
+import CodeIcon from '@material-ui/icons/Code';
+import { Typography } from '@material-ui/core';
 import { AccordionDefault, SelectDefault } from './ui';
+import { SideBarStyles } from './SideBarStyles';
 
-const useStyles = makeStyles((theme) => ({
-	drawerPaper: {
-		position: 'relative',
-		whiteSpace: 'nowrap',
-		width: drawerWidth,
-		transition: theme.transitions.create('width', {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.enteringScreen,
-		}),
-	},
-	drawerPaperClose: {
-		overflowX: 'hidden',
-		transition: theme.transitions.create('width', {
-			easing: theme.transitions.easing.sharp,
-			duration: theme.transitions.duration.leavingScreen,
-		}),
-		width: theme.spacing(7),
-		[theme.breakpoints.up('sm')]: {
-			width: theme.spacing(9),
-		},
-	},
-
-	toolbarIcon: {
-		display: 'flex',
-		alignItems: 'center',
-		justifyContent: 'flex-end',
-		padding: '0 8px',
-		...theme.mixins.toolbar,
-	},
-
-	formControl: {
-		margin: theme.spacing(1),
-		width: '100%',
-	},
-	selectEmpty: {
-		marginTop: theme.spacing(2),
-	},
-}));
-
-
-export const Sidebar: React.FC = ({ }) => {
-	const classes = useStyles();
+export const Sidebar: React.FC = () => {
+	const classes = SideBarStyles();
 	const [age, setAge] = React.useState('');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
@@ -71,31 +33,41 @@ export const Sidebar: React.FC = ({ }) => {
 			}}
 			open={open}
 		>
-			<div className={classes.toolbarIcon}>
-				<IconButton onClick={() => console.log('closeDrower')}>
-					<ChevronLeftIcon />
-				</IconButton>
-			</div>
-			<Divider light />
-			<ListItem>
-				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Направление" />
-			</ListItem>
-
-			<ListItem>
-				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Каналы" />
-			</ListItem>
-
-			<ListItem>
-				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Тип письма" />
-			</ListItem>
-
-			<ListItem>
-				<SelectDefault value={age} handleChange={handleChange} options={[{ value: '10', label: 'test' }]} title="Издание" />
-			</ListItem>
+			<h2 className={classes.titleBlock}>Название блока</h2>
 			<ListItem>
 				<AccordionDefault />
-
+			</ListItem>
+			<h2 className={classes.titleBlock}>Обозначения</h2>
+			<ListItem>
+				<Box display="flex" alignItems="center">
+					<BorderColorIcon fontSize="small" />
+					<Typography style={{ marginLeft: '15px' }}>планируется</Typography>
+				</Box>
+			</ListItem>{' '}
+			<ListItem>
+				<Box display="flex" alignItems="center">
+					<CodeIcon fontSize="small" />
+					<Typography style={{ marginLeft: '15px' }}>верстка</Typography>
+				</Box>
+			</ListItem>{' '}
+			<ListItem>
+				<Box display="flex" alignItems="center">
+					<SearchIcon fontSize="small" />
+					<Typography style={{ marginLeft: '15px' }}>тест</Typography>
+				</Box>
+			</ListItem>{' '}
+			<ListItem>
+				<Box display="flex" alignItems="center">
+					<ThumbUpAltOutlinedIcon fontSize="small" />
+					<Typography style={{ marginLeft: '15px' }}>согласована</Typography>
+				</Box>
+			</ListItem>{' '}
+			<ListItem>
+				<Box display="flex" alignItems="center">
+					<CheckIcon fontSize="small" />
+					<Typography style={{ marginLeft: '15px' }}>отправлено</Typography>
+				</Box>
 			</ListItem>
 		</Drawer>
 	);
-}
+};
