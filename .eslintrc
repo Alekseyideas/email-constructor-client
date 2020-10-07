@@ -1,7 +1,7 @@
 {
 	"plugins": [
 		"prettier",
-		"@typescript-eslint/tslint"
+		"@typescript-eslint"
 	],
 	"extends": [
 		"airbnb-typescript",
@@ -15,12 +15,6 @@
 	},
 	"settings": {},
 	"rules": {
-		"no-use-before-define": [
-			"error",
-			{
-				"variables": false
-			}
-		],
 		"indent": [
 			2,
 			"tab",
@@ -106,9 +100,5 @@
 	},
 	"globals": {
 		"localStorage": true
-	},
-	"env": {
-		"browser": true,
-		"node": true
 	}
 }

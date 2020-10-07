@@ -10,156 +10,261 @@ const useStyles = makeStyles((theme: Theme) =>
 	createStyles({
 		root: {
 			width: '100%',
+			'.MuiButtonBase-root': {
+				padding: '5px !importent',
+			},
+		},
+		wrapper: {
+			background: '#f7f7f7',
 		},
 		heading: {
-			fontSize: theme.typography.pxToRem(15),
+			fontSize: theme.typography.pxToRem(13),
 			fontWeight: theme.typography.fontWeightRegular,
+			margin: 0,
 		},
-	}),
-);
+		blockText: {
+			background: '#3174ad',
+			width: '100%',
+			color: '#fff',
+			borderRadius: '2px',
+			margin: '2px 0',
+			fontSize: theme.typography.pxToRem(12),
+			padding: '2px 5px',
+		},
+		select: {
+			minHeight: '30px',
 
+			'&.Mui-expanded': {
+				minHeight: '30px',
+			},
+		},
+	})
+);
 
 export const AccordionDefault: React.FC = () => {
 	const classes = useStyles();
-	const [expanded, setExpanded] = React.useState<string | false>(false);
+	const [expanded, setExpanded] = React.useState<string | false>('panel4');
 
 	const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 	return (
 		<div className={classes.root}>
-			<Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')} TransitionProps={{ unmountOnExit: true }} >
+			<Accordion
+				className={classes.wrapper}
+				expanded={expanded === 'panel1'}
+				onChange={handleChange('panel1')}
+				TransitionProps={{ unmountOnExit: true }}
+			>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel1a-content"
 				>
 					<Typography className={classes.heading}>Трафик</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					1
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>DZ_traffic</div>
+						<div className={classes.blockText}>Бюджетник_трафик</div>
+						<div className={classes.blockText}>SemGBB_event</div>
+					</div>
 				</AccordionDetails>
 			</Accordion>
-			<Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel2a-content"
 				>
 					<Typography className={classes.heading}>Демо</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					2
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
 				</AccordionDetails>
 			</Accordion>
-			<Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel3a-content"
 				>
 					<Typography className={classes.heading}>Торговля</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					3
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel4a-content"
 				>
 					<Typography className={classes.heading}>Мероприятия</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					4
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div style={{ background: '#808000' }} className={classes.blockText}>
+							VSHZ_event
+						</div>
+						<div style={{ background: '#FFD700' }} className={classes.blockText}>
+							GBB_event
+						</div>
+						<div style={{ background: '#D2691E' }} className={classes.blockText}>
+							TIZ_event
+						</div>
+						<div style={{ background: '#FFD700' }} className={classes.blockText}>
+							DZ_event
+						</div>
+						<div style={{ background: 'rgb(47, 79, 79)' }} className={classes.blockText}>
+							SemGBB_event
+						</div>
+						<div style={{ background: '#2F4F4F' }} className={classes.blockText}>
+							SemDZ_event
+						</div>
+						<div style={{ background: '#CD853F' }} className={classes.blockText}>
+							VSHGBB_event
+						</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel5a-content"
 				>
 					<Typography className={classes.heading}>Торговля (направление)</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					5
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel6a-content"
 				>
 					<Typography className={classes.heading}>Подписчики</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					6
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel7a-content"
 				>
 					<Typography className={classes.heading}>Подписчики vip</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					7
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel8a-content"
 				>
 					<Typography className={classes.heading}>Подписчики стандарт</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					8
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel9a-content"
 				>
 					<Typography className={classes.heading}>Реклама</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					9
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel10'} onChange={handleChange('panel10')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel10'} onChange={handleChange('panel10')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel10a-content"
 				>
 					<Typography className={classes.heading}>Триггеры</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					10
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel11'} onChange={handleChange('panel11')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel11'} onChange={handleChange('panel11')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel11a-content"
 				>
 					<Typography className={classes.heading}>Триггеры (портал)</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					11
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
-			<Accordion expanded={expanded === 'panel12'} onChange={handleChange('panel12')}>
+			<Accordion className={classes.wrapper} expanded={expanded === 'panel12'} onChange={handleChange('panel12')}>
 				<AccordionSummary
-					expandIcon={<ExpandMoreIcon />}
+					className={classes.select}
+					expandIcon={<ExpandMoreIcon fontSize="small" />}
 					aria-controls="panel12a-content"
 				>
 					<Typography className={classes.heading}>Праздники</Typography>
 				</AccordionSummary>
 				<AccordionDetails>
-					12
-				</AccordionDetails>
+					<div style={{ width: '100%' }}>
+						<div className={classes.blockText}>1</div>
+						<div className={classes.blockText}>2</div>
+						<div className={classes.blockText}>3</div>
+					</div>
+				</AccordionDetails>{' '}
 			</Accordion>
 		</div>
 	);
-}
+};

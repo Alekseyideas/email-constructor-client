@@ -1,7 +1,5 @@
 import { Typography, Link } from '@material-ui/core';
-import React from 'react'
-
-
+import React from 'react';
 
 export const Copyright: React.FC = () => {
 	return (
@@ -9,9 +7,9 @@ export const Copyright: React.FC = () => {
 			{'© '}
 			<Link color="inherit" href="https://mcfr.ua/">
 				Цифрове видавництво MCFR
-      </Link>{' '}
+			</Link>{' '}
 			{new Date().getFullYear()}
 			{'.'}
 		</Typography>
 	);
-}
+};

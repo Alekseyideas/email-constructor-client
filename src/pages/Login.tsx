@@ -1,5 +1,6 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
+import { useHistory } from 'react-router-dom';
 import { TextField } from 'formik-material-ui';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -7,15 +8,14 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
+// import Link from '@material-ui/core/Link';
+// import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Copyright } from '../components/Copyright';
-import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
 	paper: {
@@ -53,20 +53,19 @@ export const Login: React.FC = () => {
 				<Avatar className={classes.avatar}>
 					<LockOutlinedIcon />
 				</Avatar>
-				<Typography component="h1" variant="h5">Увійти</Typography>
+				<Typography component="h1" variant="h5">
+					Увійти
+				</Typography>
 				<Formik
 					initialValues={{
 						email: '',
 						password: '',
 					}}
-
-					validate={values => {
+					validate={(values) => {
 						const errors: Partial<Values> = {};
 						if (!values.email) {
 							errors.email = `Обов'зкове поле`;
-						} else if (
-							!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)
-						) {
+						} else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
 							errors.email = 'Невірна адреса електронної пошти';
 						}
 						if (!values.password) {
@@ -108,10 +107,7 @@ export const Login: React.FC = () => {
 								id="password"
 								autoComplete="current-password"
 							/>
-							<FormControlLabel
-								control={<Checkbox value="remember" color="primary" />}
-								label="Запам'ятати мене"
-							/>
+							<FormControlLabel control={<Checkbox value="remember" color="primary" />} label="Запам'ятати мене" />
 							<Button
 								// type="submit"
 								fullWidth
@@ -121,22 +117,9 @@ export const Login: React.FC = () => {
 								disabled={isSubmitting}
 								onClick={submitForm}
 								style={{ height: '36px' }}
-
 							>
 								{isSubmitting ? <CircularProgress size={15} /> : 'Увiйти'}
 							</Button>
-							<Grid container>
-								<Grid item xs>
-									<Link href="#" variant="body2">
-										Забули пароль ?
-						</Link>
-								</Grid>
-								{/* <Grid item>
-							<Link href="#" variant="body2">
-								{"Don't have an account? Sign Up"}
-							</Link>
-						</Grid> */}
-							</Grid>
 						</Form>
 					)}
 				</Formik>

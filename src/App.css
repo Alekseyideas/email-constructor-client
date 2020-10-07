@@ -1,38 +1,86 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+	height: 40vmin;
+	pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+	.App-logo {
+		animation: App-logo-spin infinite 20s linear;
+	}
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+	background-color: #282c34;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	font-size: calc(10px + 2vmin);
+	color: white;
 }
 
 .App-link {
-  color: #61dafb;
+	color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+.rbc-row-segment {
+	font-size: 10px;
+}
+.rbc-event {
+	padding: 0 !important;
+	background: none;
+	overflow: hidden;
+}
+
+.fc-h-event {
+	/* background: none !important;
+	border: 0 !important; */
+}
+.fc-v-event.yellow,
+.fc-v-event.yellow .fc-event-main,
+.fc-daygrid-event.yellow {
+	background-color: rgb(255, 215, 0);
+	color: black;
+}
+
+.fc-v-event.orange,
+.fc-v-event.orange .fc-event-main,
+.fc-daygrid-event.orange {
+	background-color: rgb(210, 105, 30);
+	color: white;
+}
+
+.fc .yellow .fc-list-event-dot {
+	background-color: rgb(255, 215, 0);
+	border: 5px solid rgb(255, 215, 0);
+}
+.fc .orange .fc-list-event-dot {
+	background-color: rgb(210, 105, 30);
+	border: 5px solid rgb(210, 105, 30);
+}
+
+.orange:hover {
+	color: black;
+}
+
+.MuiIconButton-root {
+	padding: 5px !important;
+}
+
+.MuiAccordionSummary-content {
+	margin: 0 !important;
 }
