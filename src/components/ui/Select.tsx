@@ -1,9 +1,10 @@
 import React from 'react';
 import FormControl from '@material-ui/core/FormControl';
 import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
+// import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
 	formControl: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	label: {
 		color: theme.palette.background.paper,
-		fontSize: '14px',
+		fontSize: '11px',
 		marginTop: 0,
 	},
 	select: {
@@ -65,11 +66,16 @@ export const SelectDefault: React.FC<SelectProps> = ({
 
 	return (
 		<FormControl className={classes.formControl}>
-			<InputLabel id={name} className={classes.label} style={stylesLabel}>
+			{/* <InputLabel id={name} className={classes.label} style={stylesLabel}>
 				{title}
-			</InputLabel>
+			</InputLabel> */}
+			<FormHelperText className={classes.label}>{title}</FormHelperText>
+
 			<Select
+				placeholder="Зробіть вибір"
 				value={value}
+				displayEmpty
+				defaultValue="Зробіть вибір"
 				onChange={handleChange}
 				style={stylesSelect}
 				className={classes.select}
@@ -79,6 +85,9 @@ export const SelectDefault: React.FC<SelectProps> = ({
 					},
 				}}
 			>
+				<MenuItem value="" disabled>
+					Зробіть вибір
+				</MenuItem>
 				{options.map((option) => (
 					<MenuItem key={option.value} value={option.value}>
 						{option.label}

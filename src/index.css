@@ -13,3 +13,23 @@ code {
 p {
 	white-space: initial;
 }
+
+.MuiMenu-paper {
+	top: 54px !important;
+}
+.MuiFormLabel-root.Mui-focused {
+	color: white !important;
+}
+
+.fc .fc-button-primary {
+	background-color: rgb(117, 128, 140) !important;
+	border-color: rgb(87, 98, 109) !important;
+}
+.fc .fc-button-primary:hover {
+	background-color: rgb(87, 98, 109) !important;
+	border-color: rgb(87, 98, 109) !important;
+}
+
+.MuiSelect-selectMenu {
+	font-size: 13.2px !important;
+}
