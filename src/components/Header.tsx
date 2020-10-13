@@ -91,8 +91,12 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 							value={age}
 							handleChange={handleChange}
 							options={[
-								{ value: '10', label: 'test 123 123123123213' },
-								{ value: '11', label: 'test 2' },
+								{ value: '10', label: 'Бюджет' },
+								{ value: '11', label: 'Головбух (ком.)' },
+								{ value: '12', label: 'Кадри' },
+								{ value: '13', label: 'ОТ' },
+								{ value: '14', label: 'Освіта' },
+								{ value: '15', label: 'Охорона здоров’я' },
 							]}
 							title="Направление"
 						/>
@@ -102,8 +106,11 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 							value={chanтel}
 							handleChange={(event: React.ChangeEvent<{ value: unknown }>) => setChaтnel(event.target.value as string)}
 							options={[
-								{ value: '10', label: 'test 123 123123123213' },
-								{ value: '11', label: 'test 2' },
+								{ value: '10', label: 'All' },
+								{ value: '11', label: 'email' },
+								{ value: '12', label: 'push' },
+								{ value: '13', label: 'messenger' },
+								{ value: '14', label: 'viber' },
 							]}
 							title="Каналы"
 						/>
@@ -115,8 +122,19 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 								setLetterType(event.target.value as string)
 							}
 							options={[
-								{ value: '10', label: 'test 123 123123123213' },
-								{ value: '11', label: 'test 2' },
+								{ value: '10', label: 'All' },
+								{ value: '11', label: 'traffic' },
+								{ value: '12', label: 'demo' },
+								{ value: '13', label: 'market' },
+								{ value: '14', label: 'event' },
+								{ value: '15', label: 'marketportal' },
+								{ value: '16', label: 'client' },
+								{ value: '17', label: 'clientvip' },
+								{ value: '18', label: 'clientst' },
+								{ value: '19', label: 'adv' },
+								{ value: '20', label: 'trigger' },
+								{ value: '21', label: 'triggerportal' },
+								{ value: '22', label: 'hollyday' },
 							]}
 							title="Тип письма"
 						/>
@@ -126,8 +144,16 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 							value={edition}
 							handleChange={(event: React.ChangeEvent<{ value: unknown }>) => setEdition(event.target.value as string)}
 							options={[
-								{ value: '10', label: 'test 123 123123123213' },
-								{ value: '11', label: 'test 2' },
+								{ value: 'Зробіть вибір', label: 'Зробіть вибір' },
+								{ value: '10', label: 'All' },
+								{ value: 'UZOZ', label: 'UZOZ' },
+								{ value: 'DGMS', label: 'DGMS' },
+								{ value: 'EMZ', label: 'EMZ' },
+								{ value: 'VSHKM', label: 'VSHKM' },
+								{ value: 'VSHGM', label: 'VSHGM' },
+								{ value: 'SemMed', label: 'SemMed' },
+								{ value: 'SemMedVIP', label: 'SemMedVIP' },
+								{ value: 'DOZ', label: 'DOZ' },
 							]}
 							title="Издание"
 						/>

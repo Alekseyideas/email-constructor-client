@@ -26,7 +26,7 @@ export const Sidebar: React.FC = () => {
 			}}
 			open={open}
 		>
-			<h2 className={classes.titleBlock}>Название блока</h2>
+			<h2 className={classes.titleBlock}>Вид рассылки</h2>
 			<ListItem>
 				<AccordionDefault />
 			</ListItem>
