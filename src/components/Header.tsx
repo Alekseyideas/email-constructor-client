@@ -49,6 +49,11 @@ const useStyles = makeStyles((theme) => ({
 	selectWrapper: {
 		width: '110px',
 		marginRight: theme.spacing(1),
+
+		'& > div > label': {
+			// transform: 'translate(0, 1.5px) scale(0.75)',
+			// transformOrigin: 'top left',
+		},
 	},
 }));
 
@@ -58,6 +63,9 @@ interface AppBarProps {
 
 export const Header: React.FC<AppBarProps> = ({ title }) => {
 	const [age, setAge] = React.useState('');
+	const [chanтel, setChaтnel] = React.useState('');
+	const [letterType, setLetterType] = React.useState('');
+	const [edition, setEdition] = React.useState('');
 
 	const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
 		setAge(event.target.value as string);
@@ -91,8 +99,8 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 					</Box>
 					<Box className={classes.selectWrapper}>
 						<SelectDefault
-							value={age}
-							handleChange={handleChange}
+							value={chanтel}
+							handleChange={(event: React.ChangeEvent<{ value: unknown }>) => setChaтnel(event.target.value as string)}
 							options={[
 								{ value: '10', label: 'test 123 123123123213' },
 								{ value: '11', label: 'test 2' },
@@ -102,8 +110,10 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 					</Box>{' '}
 					<Box className={classes.selectWrapper}>
 						<SelectDefault
-							value={age}
-							handleChange={handleChange}
+							value={letterType}
+							handleChange={(event: React.ChangeEvent<{ value: unknown }>) =>
+								setLetterType(event.target.value as string)
+							}
 							options={[
 								{ value: '10', label: 'test 123 123123123213' },
 								{ value: '11', label: 'test 2' },
@@ -113,8 +123,8 @@ export const Header: React.FC<AppBarProps> = ({ title }) => {
 					</Box>{' '}
 					<Box className={classes.selectWrapper}>
 						<SelectDefault
-							value={age}
-							handleChange={handleChange}
+							value={edition}
+							handleChange={(event: React.ChangeEvent<{ value: unknown }>) => setEdition(event.target.value as string)}
 							options={[
 								{ value: '10', label: 'test 123 123123123213' },
 								{ value: '11', label: 'test 2' },
