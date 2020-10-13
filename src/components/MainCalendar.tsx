@@ -32,6 +32,20 @@ const myEvents: EventInput[] = [
 		className: 'orange',
 	},
 	{
+		id: '11',
+		title: 'Some event + 4 hours',
+		start: moment(todayStr).add(2, 'hours').toDate(),
+		end: moment(todayStr).add(5, 'hours').toDate(),
+		className: 'orange',
+	},
+	{
+		id: '21',
+		title: 'Some event + 5 hours',
+		start: moment(todayStr).add(3, 'hours').toDate(),
+		end: moment(todayStr).add(4, 'hours').toDate(),
+		className: 'orange',
+	},
+	{
 		id: '2',
 		title: 'Some event + 3 hours',
 		start: moment(todayStr).add(6, 'hours').toDate(),
@@ -48,8 +62,8 @@ const myEvents: EventInput[] = [
 	{
 		id: '4',
 		title: 'Some event + 4 hours',
-		start: moment(todayStr).add(14, 'hours').toDate(),
-		end: moment(todayStr).add(15, 'hours').toDate(),
+		start: moment(todayStr).add(24, 'hours').toDate(),
+		end: moment(todayStr).add(25, 'hours').toDate(),
 		className: 'orange',
 	},
 ];
