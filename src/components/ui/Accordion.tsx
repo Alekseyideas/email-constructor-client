@@ -1,5 +1,7 @@
 import React from 'react';
 import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction'; // needed for dayClick
+
 import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
@@ -45,11 +47,28 @@ export const AccordionDefault: React.FC = () => {
 	const classes = useStyles();
 	const [expanded, setExpanded] = React.useState<string | false>('panel4');
 
+	// React.useEffect(() => {
+	// 	let draggableEl = document.getElementById('external-events');
+	// 	if (draggableEl) {
+	// 		new Draggable(draggableEl, {
+	// 			itemSelector: '.fc-event',
+	// 			eventData: function (eventEl) {
+	// 				console.log('eventEl', eventEl);
+	// 				let title = eventEl.getAttribute('title');
+	// 				let id = eventEl.getAttribute('data');
+	// 				return {
+	// 					title: title,
+	// 					id: id,
+	// 				};
+	// 			},
+	// 		});
+	// 	}
+	// }, []);
 	const handleChange = (panel: string) => (event: React.ChangeEvent<{}>, isExpanded: boolean) => {
 		setExpanded(isExpanded ? panel : false);
 	};
 	return (
-		<div className={classes.root}>
+		<div className={classes.root} id="external-events">
 			<Accordion
 				className={classes.wrapper}
 				expanded={expanded === 'panel1'}
@@ -65,9 +84,9 @@ export const AccordionDefault: React.FC = () => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>DZ_traffic</div>
-						<div className={classes.blockText}>Бюджетник_трафик</div>
-						<div className={classes.blockText}>SemGBB_event</div>
+						<div title="dz">DZ_traffic</div>
+						<div title="bb">Бюджетник_трафик</div>
+						<div title="sem">SemGBB_event</div>
 					</div>
 				</AccordionDetails>
 			</Accordion>
@@ -113,25 +132,25 @@ export const AccordionDefault: React.FC = () => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<div style={{ width: '100%' }}>
-						<div style={{ background: '#808000' }} className={classes.blockText}>
+						<div style={{ background: '#808000' }} className={`${classes.blockText} fc-event`}>
 							VSHZ_event
 						</div>
-						<div style={{ background: '#FFD700' }} className={classes.blockText}>
+						<div style={{ background: '#FFD700' }} className={`${classes.blockText} fc-event`}>
 							GBB_event
 						</div>
-						<div style={{ background: '#D2691E' }} className={classes.blockText}>
+						<div style={{ background: '#D2691E' }} className={`${classes.blockText} fc-event`}>
 							TIZ_event
 						</div>
-						<div style={{ background: '#FFD700' }} className={classes.blockText}>
+						<div style={{ background: '#FFD700' }} className={`${classes.blockText} fc-event`}>
 							DZ_event
 						</div>
-						<div style={{ background: 'rgb(47, 79, 79)' }} className={classes.blockText}>
+						<div style={{ background: 'rgb(47, 79, 79)' }} className={`${classes.blockText} fc-event`}>
 							SemGBB_event
 						</div>
-						<div style={{ background: '#2F4F4F' }} className={classes.blockText}>
+						<div style={{ background: '#2F4F4F' }} className={`${classes.blockText} fc-event`}>
 							SemDZ_event
 						</div>
-						<div style={{ background: '#CD853F' }} className={classes.blockText}>
+						<div style={{ background: '#CD853F' }} className={`${classes.blockText} fc-event`}>
 							VSHGBB_event
 						</div>
 					</div>

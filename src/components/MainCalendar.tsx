@@ -7,7 +7,7 @@ import ukLocale from '@fullcalendar/core/locales/uk';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin, { Draggable } from '@fullcalendar/interaction';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
@@ -78,6 +78,7 @@ const EventComp: React.FC<EventCompProps> = ({ event }) => {
 	if (event.classNames.includes('orange')) {
 		icon = <CodeIcon style={{ fontSize: '10px' }} fontSize="small" />;
 	}
+
 	const t = moment(event.startStr).format('H:mm');
 	return (
 		<Box
@@ -100,9 +101,35 @@ const EventComp: React.FC<EventCompProps> = ({ event }) => {
 	);
 };
 export const MainCalendar: React.FC = () => {
+	React.useEffect(() => {
+		let draggableEl = document.getElementById('external-events');
+		console.log('draggableEl', draggableEl);
+		if (draggableEl) {
+			new Draggable(draggableEl, {
+				itemSelector: '.fc-event',
+				longPressDelay: 1,
+				eventData: function (eventEl) {
+					console.log('eventEl', eventEl);
+					let title = eventEl.getAttribute('title');
+					let id = eventEl.getAttribute('data');
+					return {
+						title: title,
+						id: id,
+					};
+				},
+			});
+		}
+	}, []);
+	const andleeventDrop = (eventDropInfo: any) => {
+		console.log(eventDropInfo.event);
+	};
+	const handleeventDrop = (eventDropInfo: any) => {
+		console.log(eventDropInfo.event);
+	};
 	return (
 		<div style={{ width: '100%' }}>
 			<FullCalendar
+				eventDrop={handleeventDrop}
 				headerToolbar={{
 					left: 'prev,next today',
 					center: 'title',
@@ -113,15 +140,18 @@ export const MainCalendar: React.FC = () => {
 				weekNumberFormat={{
 					week: 'short',
 				}}
+				droppable
 				height="100vh"
 				initialEvents={myEvents}
 				plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
 				initialView="dayGridMonth"
-				editable={false}
-				selectable={false}
-				selectMirror={false}
+				editable={true}
+				selectable={true}
+				selectMirror
 				dayMaxEvents={true}
 				eventContent={EventComp}
+				drop={(fn) => console.log(fn)}
+				eventReceive={(fn) => console.log(fn)}
 			/>
 		</div>
 	);
