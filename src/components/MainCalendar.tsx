@@ -102,7 +102,8 @@ const EventComp: React.FC<EventCompProps> = ({ event }) => {
 };
 export const MainCalendar: React.FC = () => {
 	React.useEffect(() => {
-		let draggableEl = document.getElementById('external-events');
+		// eslint-disable-next-line no-undef
+		const draggableEl = document.getElementById('external-events');
 		console.log('draggableEl', draggableEl);
 		if (draggableEl) {
 			new Draggable(draggableEl, {
