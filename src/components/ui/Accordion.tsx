@@ -84,9 +84,12 @@ export const AccordionDefault: React.FC = () => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<div style={{ width: '100%' }}>
-						<div title="dz">DZ_traffic</div>
-						<div title="bb">Бюджетник_трафик</div>
-						<div title="sem">SemGBB_event</div>
+						<div style={{ background: '#DC143C' }} className={`${classes.blockText} fc-event`}>
+							GBB_traffic
+						</div>
+						<div style={{ background: '#DC143C' }} className={`${classes.blockText} fc-event`}>
+							DZ_traffic
+						</div>
 					</div>
 				</AccordionDetails>
 			</Accordion>
@@ -100,9 +103,18 @@ export const AccordionDefault: React.FC = () => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
+						<div style={{ background: '#FFD700' }} className={`${classes.blockText} fc-event`}>
+							DZ_demo
+						</div>
+						<div style={{ background: 'rgb(47, 79, 79)' }} className={`${classes.blockText} fc-event`}>
+							SemGBB_demo
+						</div>
+						<div style={{ background: '#FF1493' }} className={`${classes.blockText} fc-event`}>
+							SemDZ_demo
+						</div>
+						<div style={{ background: '#CD853F' }} className={`${classes.blockText} fc-event`}>
+							VSHGBB_demo
+						</div>
 					</div>
 				</AccordionDetails>
 			</Accordion>
@@ -116,9 +128,22 @@ export const AccordionDefault: React.FC = () => {
 				</AccordionSummary>
 				<AccordionDetails>
 					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
+						<div style={{ background: '#FFD700' }} className={`${classes.blockText} fc-event`}>
+							VSHZ_market
+						</div>
+						<div style={{ background: 'rgb(47, 79, 79)' }} className={`${classes.blockText} fc-event`}>
+							VDB_market
+						</div>
+						<div style={{ background: '#FF1493' }} className={`${classes.blockText} fc-event`}>
+							GBB_market
+						</div>
+						<div style={{ background: '#CD853F' }} className={`${classes.blockText} fc-event`}>
+							TIZ_market
+						</div>
+						<div style={{ background: '#DC143C' }} className={`${classes.blockText} fc-event`}>
+							DZ_market
+						</div>
+						<div className={`${classes.blockText} fc-event`}>VSHGBB_market</div>
 					</div>
 				</AccordionDetails>{' '}
 			</Accordion>
@@ -154,7 +179,7 @@ export const AccordionDefault: React.FC = () => {
 							VSHGBB_event
 						</div>
 					</div>
-				</AccordionDetails>{' '}
+				</AccordionDetails>
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
 				<AccordionSummary
@@ -164,13 +189,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Торговля (направление)</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails> </AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel6'} onChange={handleChange('panel6')}>
 				<AccordionSummary
@@ -180,13 +199,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Подписчики</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails> </AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel7'} onChange={handleChange('panel7')}>
 				<AccordionSummary
@@ -196,13 +209,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Подписчики vip</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails></AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel8'} onChange={handleChange('panel8')}>
 				<AccordionSummary
@@ -212,13 +219,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Подписчики стандарт</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails></AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel9'} onChange={handleChange('panel9')}>
 				<AccordionSummary
@@ -228,13 +229,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Реклама</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails></AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel10'} onChange={handleChange('panel10')}>
 				<AccordionSummary
@@ -244,13 +239,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Триггеры</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails></AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel11'} onChange={handleChange('panel11')}>
 				<AccordionSummary
@@ -260,13 +249,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Триггеры (портал)</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails> </AccordionDetails>{' '}
 			</Accordion>
 			<Accordion className={classes.wrapper} expanded={expanded === 'panel12'} onChange={handleChange('panel12')}>
 				<AccordionSummary
@@ -276,13 +259,7 @@ export const AccordionDefault: React.FC = () => {
 				>
 					<Typography className={classes.heading}>Праздники</Typography>
 				</AccordionSummary>
-				<AccordionDetails>
-					<div style={{ width: '100%' }}>
-						<div className={classes.blockText}>1</div>
-						<div className={classes.blockText}>2</div>
-						<div className={classes.blockText}>3</div>
-					</div>
-				</AccordionDetails>{' '}
+				<AccordionDetails></AccordionDetails>{' '}
 			</Accordion>
 		</div>
 	);
